@@ -102,7 +102,7 @@ def nd_gradients(y, t, z):
 
 def train(weights, features, targets, bias, w2, b2):
     epochs = 200
-    learning_rate = 0.1
+    learning_rate = 0.01
     predictions = predict(features, weights, bias, w2, b2)
     print("Accuracy", np.mean(predictions == targets))
     for epoch in range(epochs):
@@ -126,6 +126,10 @@ def train(weights, features, targets, bias, w2, b2):
         w2 = w2 - learning_rate * w2_gradients
         bias = bias - learning_rate * bias_gradients
         b2 = b2 - learning_rate * b2_gradients
+        #print("weights", weights)
+        #print("bias", bias)
+        #print("w2", w2)
+        #print("b2", b2)
     predictions = predict(features, weights, bias, w2, b2)
     print("Accuracy", np.mean(predictions == targets))
 
